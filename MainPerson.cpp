@@ -4,12 +4,12 @@
 
 void MainPerson::lookAround()
 {
-	size_t height = level_->getHeight();
-	size_t width = level_->getWidth();
+	USHORT height = level_->getHeight();
+	USHORT width = level_->getWidth();
 
-	for (size_t i = 0; i < height; ++i)
+	for (USHORT i = 0; i < height; ++i)
 	{
-		for (size_t j = 0; j < width + 1; ++j)
+		for (USHORT j = 0; j < width + 1; ++j)
 		{
 			if ((personCoord_.X - i) * (personCoord_.X - i) + (personCoord_.Y - j) * (personCoord_.Y - j) <= (lookRadius_ * lookRadius_))
 				level_->setAreaMask(i, j);
@@ -63,7 +63,7 @@ char MainPerson::getPersonSymbol() const
 	return symbol_;
 }
 
-void MainPerson::setLookRadius(size_t radius)
+void MainPerson::setLookRadius(USHORT radius)
 {
 	lookRadius_ = radius;
 }

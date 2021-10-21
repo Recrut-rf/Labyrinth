@@ -2,12 +2,12 @@
 #include "Person.h"
 
 
-COORD Person::getPersonCoord() const
+COORD Person::getCoord() const
 {
 	return personCoord_;
 }
 
-void Person::setPersonCoord(COORD coord)
+void Person::setCoord(COORD coord)
 {
 	personCoord_ = coord;
 }

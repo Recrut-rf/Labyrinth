@@ -71,9 +71,9 @@ void Level::load(std::string fileName)
 	std::vector<char> temp;
 	std::vector<bool> tempBool;
 
-	for (size_t i = 0; i < height_; ++i)
+	for (USHORT i = 0; i < height_; ++i)
 	{
-		for (size_t j = 0; j < width_ + 1; ++j)
+		for (USHORT j = 0; j < width_ + 1; ++j)
 		{
 			temp.push_back(file.get());			
 			tempBool.push_back(false);			
@@ -115,17 +115,17 @@ void Level::levelDrawing()
 	WORD personAttrib = 6;
 	WORD attribBlack = 0;
 
-	size_t index = 0;
-	for (size_t i = 0; i < height_; ++i)
+	USHORT index = 0;
+	for (USHORT i = 0; i < height_; ++i)
 	{
-		for (size_t j = 0; j < width_ + 1; ++j)
+		for (USHORT j = 0; j < width_ + 1; ++j)
 		{			
 			if (area_[i][j] == '\n')			
 				addSymbolAndAttributeToBuffer(index, '\n', 0);
 			
 			if (areaMask_[i][j] && area_[i][j] != '\n')
 			{
-				if ((i != mainPerson_->getPersonCoord().X || j != mainPerson_->getPersonCoord().Y) && !IsExit(i, j))
+				if ((i != mainPerson_->getCoord().X || j != mainPerson_->getCoord().Y) && !IsExit(i, j))
 				{					
 					if (area_[i][j] == floorSymbol_)					
 						addSymbolAndAttributeToBuffer(index, floorSymbol_, floorAttrib);
@@ -156,28 +156,28 @@ bool Level::IsExit(size_t x, size_t y)
 	return x == exitCoord_.X && y == exitCoord_.Y;
 }
 
-size_t Level::getWidth() const
+USHORT Level::getWidth() const
 {
 	return width_;
 }
 
-size_t Level::getHeight() const
+USHORT Level::getHeight() const
 {
 	return height_;
 }
 
-size_t Level::getLevelNumber() const
+USHORT Level::getLevelNumber() const
 {
 	return levelNumber_;
 }
 
-void Level::setAreaMask(size_t height, size_t width)
+void Level::setAreaMask(USHORT height, USHORT width)
 {
 	if (areaMask_.size() != 0)
 		areaMask_[height][width] = true;
 }
 
-void Level::setLevelNumber(size_t number)
+void Level::setLevelNumber(USHORT number)
 {
 	levelNumber_ = number;
 }

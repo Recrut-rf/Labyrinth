@@ -17,12 +17,12 @@ public:
 	bool CanMove(size_t x, size_t y); // проверяет доступность клетки
 	bool IsExit(size_t x, size_t y);  // является ли клетка выходом с данного уровня
 
-	size_t getWidth() const;
-	size_t getHeight() const;
-	size_t getLevelNumber() const;
+	USHORT getWidth() const;
+	USHORT getHeight() const;
+	USHORT getLevelNumber() const;
 
-	void setAreaMask(size_t height, size_t width);
-	void setLevelNumber(size_t number);
+	void setAreaMask(USHORT height, USHORT width);
+	void setLevelNumber(USHORT number);
 
 	void setPerson(Person *person);
 	SHORT getStartCoordX() const;
@@ -30,9 +30,9 @@ public:
 
 private:			  
 
-	size_t levelNumber_; // номер уровня
-	size_t width_;       // ширина
-	size_t height_;      // высота
+	USHORT levelNumber_; // номер уровня
+	USHORT width_;       // ширина
+	USHORT height_;      // высота
 
 	std::vector<std::vector<bool>> areaMask_; // маска видимости (информирует о том, 
 	                                          // видима клетка или нет)	

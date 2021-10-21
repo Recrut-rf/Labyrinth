@@ -1,5 +1,5 @@
 #pragma once
-#include <wincontypes.h>  // для COORD
+#include <Windows.h>  // для COORD
 
 class Level;
 
@@ -10,8 +10,8 @@ public:
 
 	virtual void move(int command) = 0; // обрабатываем команды персонажа
 	
-	COORD getPersonCoord() const;
-	void setPersonCoord(COORD coord);
+	COORD getCoord() const;
+	void setCoord(COORD coord);
 	void setPersonSymbol(char symbol);
 
 protected:

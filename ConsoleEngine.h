@@ -19,7 +19,7 @@ public:
 
 	void setBufferSize(SHORT X, SHORT Y);
 	void setCharPosition(SHORT X, SHORT Y);
-	void setWriteRegion(size_t Left, size_t Top, size_t Right, size_t Bottom);
+	void setWriteRegion(SHORT Left, SHORT Top, SHORT Right, SHORT Bottom);
 	void setAttribute(WORD attribute, size_t indx);
 	void setCursorAttribute(BOOL bVisible, DWORD dwSize = sizeof(CONSOLE_CURSOR_INFO));
 	void setCursorPosition(COORD  coord);

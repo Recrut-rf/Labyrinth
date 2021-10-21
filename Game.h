@@ -10,9 +10,10 @@ public:
 	Game();
 	~Game();
 
-	void Initialize();                    // базовая инициализация 
 	void Run();                           // основной игровой цикл, все операции с игрой
 private:
+	void Initialize();                    // базовая инициализация 
+
 	std::vector<std::string> levelsNames_;// название уровня (из файла)
 	MainPerson *mainPerson_;              // указатель на персонажа
 	Level *level_;                        // указатель на текущий левел

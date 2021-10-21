@@ -16,10 +16,10 @@ public:
 
 	void setPersonSymbol(char val);
 	char getPersonSymbol() const;
-	void setLookRadius(size_t radius);
+	void setLookRadius(USHORT radius);
 
 	void setLevel(Level *level);
 
 private:
-	size_t lookRadius_;  // радиус видимости	
+	USHORT lookRadius_;  // радиус видимости	
 };

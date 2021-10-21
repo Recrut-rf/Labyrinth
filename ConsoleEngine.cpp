@@ -8,7 +8,7 @@
 
 #include <conio.h>  // для _cputs и _getch();
 
-//#pragma comment (lib, "User32.lib") // можно включить если вдруг вылазит ошибка с MessageBox
+#pragma comment (lib, "User32.lib") // можно включить если вдруг вылазит ошибка с MessageBox
 
 
 /*
@@ -94,7 +94,7 @@ void ConsoleEngine::setCharPosition(SHORT X, SHORT Y)
 	charPosition_.Y = Y;
 }
 
-void ConsoleEngine::setWriteRegion(size_t Left, size_t Top, size_t Right, size_t Bottom)
+void ConsoleEngine::setWriteRegion(SHORT Left, SHORT Top, SHORT Right, SHORT Bottom)
 {
 	writeRegion_.Left = Left;
 	writeRegion_.Top = Top;

@@ -6,7 +6,8 @@
 Game::Game()
 {
 	level_ = nullptr;
-	mainPerson_ = nullptr;	      
+	mainPerson_ = nullptr;
+	Initialize();
 }
 
 Game::~Game()
@@ -54,7 +55,7 @@ void Game::Initialize()
 	level_->load(levelsNames_[0]); // загружаем первый уровень
 
 	char personSymbol = 0;
-	size_t lookRadius = 0;
+	USHORT lookRadius = 0;
 
 	file.open("Person.txt");
 	if (!file.is_open())
@@ -71,7 +72,7 @@ void Game::Initialize()
 	mainPerson_->setLevel(level_);
 	mainPerson_->setLookRadius(lookRadius);
 	mainPerson_->setPersonSymbol(personSymbol);
-	mainPerson_->setPersonCoord(COORD{ level_->getStartCoordX(), level_ ->getStartCoordY()});
+	mainPerson_->setCoord(COORD{ level_->getStartCoordX(), level_ ->getStartCoordY()});
 	// "отправляем" его на уровень
 	level_->setPerson(mainPerson_);
 }
@@ -87,10 +88,10 @@ void Game::Run()
 		mainPerson_->move(command);
 
 		// если достигли координат выхода (перехода на новый уровень)
-		if (level_->IsExit(mainPerson_->getPersonCoord().X, mainPerson_->getPersonCoord().Y))
+		if (level_->IsExit(mainPerson_->getCoord().X, mainPerson_->getCoord().Y))
 		{
 			// получаем номер уровня
-			size_t number = level_->getLevelNumber();
+			USHORT number = level_->getLevelNumber();
 			// если он меньше общего кол-ва уровней
 			if (levelsCount_ > number)
 			{
@@ -98,7 +99,7 @@ void Game::Run()
 				level_->load(levelsNames_[number]);
 				// и инкрементируем номер уровня в левеле
 				level_->setLevelNumber(++number);
-				mainPerson_->setPersonCoord(COORD{ level_->getStartCoordX(), level_->getStartCoordY()});
+				mainPerson_->setCoord(COORD{ level_->getStartCoordX(), level_->getStartCoordY()});
 			}
 			else   // иначе - окончание игры
 			{				
